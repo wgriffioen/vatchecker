@@ -1,0 +1,5 @@
+VATChecker
+
+================================================================================
+
+A simple PHP library to check the validity of a given European VAT-Number.
