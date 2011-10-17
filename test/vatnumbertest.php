@@ -15,6 +15,7 @@ class VatNumberTest extends PHPUnit_Framework_TestCase {
         $vatNumber = new VATNumber('AB123456789');
 
         $this->assertEquals($vatNumber->validate(), VATNumber::INVALID_COUNTRY_CODE);
+        $this->assertFalse($vatNumber->isValid());
     }
 
     public function testValidationOfInvalidVATNumber()
