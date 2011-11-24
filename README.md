@@ -1,14 +1,12 @@
 VATChecker
+----------
 
-================================================================================
+VATChecker is a simple PHP class which makes it possible to check the validity of a European VAT-Number.
 
-A simple PHP library to check the validity of a given European VAT-Number.
+----
+Copyright © 2010 - 2011 Wim Griffioen
 
-================================================================================
-
-Copyright (c) 2010 Wim Griffioen
-
- Permission is hereby granted, free of charge, to any person
+Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
  files (the "Software"), to deal in the Software without
  restriction, including without limitation the rights to use,
