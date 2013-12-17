@@ -1,5 +1,5 @@
 <?php
-require_once '../lib/vatnumber.php';
+require_once '../src/VATNumber.php';
 
 class VatNumberTest extends PHPUnit_Framework_TestCase {
 

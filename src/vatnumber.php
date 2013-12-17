@@ -1,5 +1,7 @@
 <?php
 
+namespace VATChecker;
+
 /**
  * @author wgriffioen
  */
@@ -136,12 +138,12 @@ class VATNumber
 
         // Finally check if the number is actually valid
         // This has to be done with a SOAP request
-        $client = new SoapClient('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl');
+        $client = new \SoapClient('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl');
 
         try {
             $response = $client->checkVat(array('countryCode' => $this->countryCode,
                                                'vatNumber' => $this->vatNumber));
-        } catch (SoapFault $e) {
+        } catch (\SoapFault $e) {
             // In case of a timeout return VATChecker::UNABLE_TO_CHECK
             return self::UNABLE_TO_CHECK;
         }

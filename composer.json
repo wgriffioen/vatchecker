@@ -1,0 +1,22 @@
+{
+    "name": "wgriffioen/vatchecker",
+    "description": "A simple library to validate a European VAT-number",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Wim Griffioen",
+            "email": "wgriffioen@gmail.com"
+        }
+    ],
+    "require": {
+        "php":  ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.28"
+    },
+    "autoload": {
+        "psr-0": {
+            "VATChecker": "src/"
+        }
+    }
+}

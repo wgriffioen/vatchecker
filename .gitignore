@@ -2,3 +2,7 @@
 *.ipr
 *.iws
 .idea/
+/vendor
+/composer.lock
+/composer.phar
+phpunit.xml
