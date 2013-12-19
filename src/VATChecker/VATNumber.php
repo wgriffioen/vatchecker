@@ -37,7 +37,7 @@ class VATNumber
     /**
      * @var array Contains all the regular expressions for all the possible VAT-numbers
      */
-    private $countrys = array(
+    private $countries = array(
         'AT' => '/ATU[0-9]{8}/',
         'BE' => '/BE0[0-9]{9}/',
         'BG' => '/BG[0-9]{9,10}/',
@@ -109,23 +109,23 @@ class VATNumber
         }
 
         // Check if the country code exists
-        if (!isset($this->countrys[$this->countryCode])) {
+        if (!isset($this->countries[$this->countryCode])) {
             return self::INVALID_COUNTRY_CODE;
         }
 
-        // Store the regex or array of multiple regexes in local variable
-        $regex = $this->countrys[$this->countryCode];
+        // Store the regex or array of multiple regular expressions in local variable
+        $regex = $this->countries[$this->countryCode];
 
-        // Match the input against the regexes
+        // Match the input against the regular expressions
         if (is_array($regex)) {
-            // Multiple regexes
-            foreach ($regex as $regex) {
-                if (!preg_match($regex, $this->input)) {
+            // Multiple regular expressions
+            foreach ($regex as $regularExpression) {
+                if (!preg_match($regularExpression, $this->input)) {
                     return self::INVALID_FORMAT;
                 }
             }
         } else {
-            // Single regex
+            // Single regular expression
             if (!preg_match($regex, $this->input)) {
                 return self::INVALID_FORMAT;
             }
