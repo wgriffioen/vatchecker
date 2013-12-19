@@ -19,25 +19,21 @@ class VATNumber
 
 
     /**
-     * @access private
      * @var string Contains the first two characters of the input of the constructor
      */
     private $countryCode;
 
     /**
-     * @access private
      * @var string Contains the part of the VAT-number after the country code
      */
     private $vatNumber;
 
     /**
-     * @access private
      * @var string Will contain the input of the constructor
      */
     private $input;
 
     /**
-     * @access private
      * @var array Contains all the regular expressions for all the possible VAT-numbers
      */
     private $countrys = array(
@@ -75,10 +71,9 @@ class VATNumber
     /**
      * Constructor
      *
-     * Stores the countrycode and the actual VAT-number in the class
+     * Stores the country-code and the actual VAT-number in the class
      * variables.
      *
-     * @access public
      * @param string $vatNumber The VAT-Number to be checked
      */
     public function __construct($vatNumber)
@@ -103,7 +98,6 @@ class VATNumber
      * If the VAT-Number is not valid, it will return an integer which
      * describe the reason why the VAT-number is invalid.
      *
-     * @access public
      * @return integer
      */
     public function validate()
@@ -160,7 +154,6 @@ class VATNumber
      *
      * If it's not valid, it will not tell why it isn't valid.
      *
-     * @access public
      * @return boolean
      */
     public function isValid()
