@@ -3,6 +3,7 @@
 namespace VATChecker;
 
 /**
+ * @package VATChecker
  * @author wgriffioen
  */
 class VATNumber
