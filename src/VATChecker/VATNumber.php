@@ -50,8 +50,7 @@ class VATNumber
         'ES' => '/^ES[A-Z0-9][0-9]{7}[A-Z0-9]$/',
         'FI' => '/^FI[0-9]{8}$/',
         'FR' => '/^FR[A-Z]{2}\s?[0-9]{9}$/',
-        'GB' => array('/^GB[0-9]{3}\s?[0-9]{4}\s?[0-9]{2}$/',
-                      '/^GB[0-9]{3}\s?[0-9]{4}\s?[0-9]{2}\s?[0-9]{3}$/',
+        'GB' => array('/^GB[0-9]{3}\s?[0-9]{4}\s?[0-9]{2}(\s?[0-9]{3})?$/',
                       '/^GB(HA|GD)[0-9]{3}$/'),
         'HU' => '/^HU[0-9]{8}$/',
         'IE' => '/^IE[0-9][A-Z0-9][0-9]{5}[A-Z]$/',
@@ -118,11 +117,18 @@ class VATNumber
 
         // Match the input against the regular expressions
         if (is_array($regex)) {
+            $validFormat = false;
+
             // Multiple regular expressions
             foreach ($regex as $regularExpression) {
-                if (!preg_match($regularExpression, $this->input)) {
-                    return self::INVALID_FORMAT;
+                if (preg_match($regularExpression, $this->input)) {
+                    $validFormat = true;
+                    break;
                 }
+            }
+
+            if (!$validFormat) {
+                return self::INVALID_FORMAT;
             }
         } else {
             // Single regular expression
