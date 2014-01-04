@@ -14,22 +14,22 @@ class ReturnValuesTest extends \PHPUnit_Framework_TestCase
     {
         $vatNumber = new VATNumber('');
 
-        $this->assertEquals(VATNumber::EMPTY_VAT_NUMBER, $vatNumber->validate());
+        $this->assertEquals(VATNumber::EMPTY_VAT_NUMBER, $vatNumber->validateFormat());
 
         $vatNumber = new VATNumber('xx');
 
-        $this->assertNotEquals(VATNumber::EMPTY_VAT_NUMBER, $vatNumber->validate());
+        $this->assertNotEquals(VATNumber::EMPTY_VAT_NUMBER, $vatNumber->validateFormat());
     }
 
     public function testInvalidCountryCodeReturnValue()
     {
         $vatNumber = new VATNumber('US');
 
-        $this->assertEquals(VATNumber::INVALID_COUNTRY_CODE, $vatNumber->validate());
+        $this->assertEquals(VATNumber::INVALID_COUNTRY_CODE, $vatNumber->validateFormat());
 
         $vatNumber = new VATNumber('NL');
 
-        $this->assertNotEquals(VATNumber::INVALID_COUNTRY_CODE, $vatNumber->validate());
+        $this->assertNotEquals(VATNumber::INVALID_COUNTRY_CODE, $vatNumber->validateFormat());
     }
 }
  

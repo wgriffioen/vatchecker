@@ -11,12 +11,13 @@ class VATNumber
 
     const RESPONSE_TIMEOUT = 5;
 
-    const INVALID_COUNTRY_CODE = 1;
-    const INVALID_FORMAT = 2;
-    const UNABLE_TO_CHECK = 3;
-    const VALID_VAT_NUMBER = 4;
-    const INVALID_VAT_NUMBER = 5;
-    const EMPTY_VAT_NUMBER = 6;
+    const INVALID_COUNTRY_CODE  = 1;
+    const INVALID_FORMAT        = 2;
+    const UNABLE_TO_CHECK       = 4;
+    const VALID_VAT_NUMBER      = 8;
+    const INVALID_VAT_NUMBER    = 16;
+    const EMPTY_VAT_NUMBER      = 32;
+    const VALID_VAT_FORMAT      = 64;
 
 
     /**
@@ -33,6 +34,11 @@ class VATNumber
      * @var string Will contain the input of the constructor
      */
     private $input;
+
+    /**
+     * @var \SoapClient
+     */
+    private $soapClient;
 
     /**
      * @var array Contains all the regular expressions for all the possible VAT-numbers
@@ -99,8 +105,19 @@ class VATNumber
      * describe the reason why the VAT-number is invalid.
      *
      * @return integer
+     * @deprecated
      */
     public function validate()
+    {
+        return $this->checkValidity();
+    }
+
+    /**
+     * Validate the format of the given VAT number
+     *
+     * @return int
+     */
+    public function validateFormat()
     {
         // Check if the VAT-number has been entered
         if (strlen($this->input) == 0) {
@@ -137,13 +154,29 @@ class VATNumber
             }
         }
 
-        // Finally check if the number is actually valid
-        // This has to be done with a SOAP request
-        $client = new \SoapClient('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl');
+        return self::VALID_VAT_FORMAT;
+    }
+
+    /**
+     * Performs a call against the webservice of the EC
+     *
+     * @return int
+     */
+    public function checkValidity()
+    {
+        if ($this->validateFormat() === self::INVALID_FORMAT) {
+            return self::INVALID_VAT_NUMBER;
+        }
+
+        $this->soapClient= new \SoapClient('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl');
 
         try {
-            $response = $client->checkVat(array('countryCode' => $this->countryCode,
-                                               'vatNumber' => $this->vatNumber));
+            $response = $this->soapClient->checkVat(
+                array(
+                    'countryCode' => $this->countryCode,
+                    'vatNumber' => $this->vatNumber,
+                )
+            );
         } catch (\SoapFault $e) {
             // In case of a timeout return VATChecker::UNABLE_TO_CHECK
             return self::UNABLE_TO_CHECK;
@@ -165,7 +198,7 @@ class VATNumber
      */
     public function isValid()
     {
-        return $this->validate() === self::VALID_VAT_NUMBER;
+        return $this->checkValidity() === self::VALID_VAT_NUMBER;
     }
 }
 
