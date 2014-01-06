@@ -2,6 +2,7 @@
     "name": "wgriffioen/vatchecker",
     "description": "A simple library to validate a European VAT-number",
     "minimum-stability": "dev",
+    "license": "MIT",
     "authors": [
         {
             "name": "Wim Griffioen",
