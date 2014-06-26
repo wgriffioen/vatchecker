@@ -3,6 +3,8 @@
 namespace VATChecker;
 
 /**
+ * Class used to check the validity of a VAT-Number
+ *
  * @package VATChecker
  * @author wgriffioen
  */
@@ -36,7 +38,7 @@ class VATNumber
     private $input;
 
     /**
-     * @var \SoapClient
+     * @var \SoapClient Holds the \SoapClient object
      */
     private $soapClient;
 
