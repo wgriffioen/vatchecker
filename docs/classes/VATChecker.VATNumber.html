@@ -7,17 +7,17 @@
     <meta name="author" content=""/>
     <meta name="description" content=""/>
 
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
     
     <!--[if lt IE 9]>
-    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <script src="../js/html5.js"></script>
     <![endif]-->
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">1</span>
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">2</span>
                                 </a>
                             </li>
                             <li>
@@ -144,19 +144,19 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-992667180"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-550565848"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-992667180" class="accordion-body collapse in">
+            <div id="namespace-550565848" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1611385878"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-892841566"></a>
                                 <a href="../namespaces/VATChecker.html" style="margin-left: 30px; padding-left: 0">VATChecker</a>
             </div>
-            <div id="namespace-1611385878" class="accordion-body collapse ">
+            <div id="namespace-892841566" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -190,7 +190,8 @@
                     <h1><small>\VATChecker</small>VATNumber</h1>
                     <p><em>Class used to check the validity of a VAT-Number</em></p>
                     
-
+                    
+                                        
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -261,7 +262,7 @@
                         <dt>File</dt>
                             <dd><a href="../files/VATNumber.html"><div class="path-wrapper">VATNumber.php</div></a></dd>
                                                 <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">\VATChecker</div></dd>
+                            <dd><div class="namespace-wrapper">VATChecker</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
                                                                                                                                                                     <div class="namespace-wrapper">\VATChecker\VATNumber</div>
@@ -604,7 +605,7 @@
             <article class="method">
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">__construct(string <span class="argument">$vatNumber</span>)</pre>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$vatNumber</span>) </pre>
                 <p><em>Constructor</em></p>
                 <p>Stores the country-code and the actual VAT-number in the class
 variables.</p>
@@ -619,6 +620,7 @@ variables.</p>
                                             </table>
                 
                 
+                				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -647,7 +649,8 @@ describe the reason why the VAT-number is invalid.</p>
                 
                                     <h4>Returns</h4>
                     integer
-                                                </article>
+                                    				
+                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -670,15 +673,16 @@ describe the reason why the VAT-number is invalid.</p>
             <article class="method">
                 <h3 class="public ">validateFormat()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">validateFormat() : int</pre>
+                <pre class="signature" style="margin-right: 54px;">validateFormat() : integer</pre>
                 <p><em>Validate the format of the given VAT number</em></p>
                 
 
                 
                 
                                     <h4>Returns</h4>
-                    int
-                                                </article>
+                    integer
+                                    				
+                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -697,15 +701,16 @@ describe the reason why the VAT-number is invalid.</p>
             <article class="method">
                 <h3 class="public ">checkValidity()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">checkValidity() : int</pre>
+                <pre class="signature" style="margin-right: 54px;">checkValidity() : integer</pre>
                 <p><em>Performs a call against the webservice of the EC</em></p>
                 
 
                 
                 
                                     <h4>Returns</h4>
-                    int
-                                                </article>
+                    integer
+                                    				
+                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -732,7 +737,8 @@ describe the reason why the VAT-number is invalid.</p>
                 
                                     <h4>Returns</h4>
                     boolean
-                                                </article>
+                                    				
+                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -795,9 +801,7 @@ describe the reason why the VAT-number is invalid.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on 
-Warning: date_default_timezone_get(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in /Users/wgriffioen/code/projects/php/vatchecker/vendor/twig/twig/lib/Twig/Extension/Core.php on line 89
-June 26th, 2014 at 19:06.
+                    on February 2nd, 2015 at 22:03.
                 </section>
             </section>
         </section>
