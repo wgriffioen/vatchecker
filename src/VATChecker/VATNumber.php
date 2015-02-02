@@ -45,7 +45,7 @@ class VATNumber
     /**
      * @var array Contains all the regular expressions for all the possible VAT-numbers
      */
-    private $countries = array(
+    private $countries = [
         'AT' => '/^ATU[0-9]{8}$/',
         'BE' => '/^BE0[0-9]{9}$/',
         'BG' => '/^BG[0-9]{9,10}$/',
@@ -58,8 +58,8 @@ class VATNumber
         'ES' => '/^ES[A-Z0-9][0-9]{7}[A-Z0-9]$/',
         'FI' => '/^FI[0-9]{8}$/',
         'FR' => '/^FR[A-Z]{2}\s?[0-9]{9}$/',
-        'GB' => array('/^GB[0-9]{3}\s?[0-9]{4}\s?[0-9]{2}(\s?[0-9]{3})?$/',
-                      '/^GB(HA|GD)[0-9]{3}$/'),
+        'GB' => [ '/^GB[0-9]{3}\s?[0-9]{4}\s?[0-9]{2}(\s?[0-9]{3})?$/',
+                  '/^GB(HA|GD)[0-9]{3}$/'],
         'HU' => '/^HU[0-9]{8}$/',
         'IE' => '/^IE[0-9][A-Z0-9][0-9]{5}[A-Z]$/',
         'IT' => '/^IT[0-9]{11}$/',
@@ -74,7 +74,7 @@ class VATNumber
         'SE' => '/^SE[0-9]{12}$/',
         'SI' => '/^SI[0-9]{8}$/',
         'SK' => '/^SK[0-9]{10}$/'
-    );
+    ];
 
     /**
      * Constructor
@@ -174,10 +174,10 @@ class VATNumber
 
         try {
             $response = $this->soapClient->checkVat(
-                array(
+                [
                     'countryCode' => $this->countryCode,
                     'vatNumber' => $this->vatNumber,
-                )
+                ]
             );
         } catch (\SoapFault $e) {
             // In case of a timeout return VATChecker::UNABLE_TO_CHECK
